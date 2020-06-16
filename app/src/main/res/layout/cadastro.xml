@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".CadastroActivity">
+
 
     <View
         android:id="@+id/tela_cadast"
@@ -27,5 +28,6 @@
         android:textAppearance="@style/login"
         tools:layout_editor_absoluteX="106dp"
         tools:layout_editor_absoluteY="326dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
