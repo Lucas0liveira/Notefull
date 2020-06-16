@@ -10,8 +10,8 @@
         android:id="@+id/tela_cadastro"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/ic_launcher_background"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/ic_launcher_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +26,7 @@
         android:background="@drawable/rectangle_1"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

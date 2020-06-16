@@ -6,4 +6,7 @@
     <color name="white">#FFFCF8</color>
     <color name="darkBlue">#0C243E</color>
     <color name="background">#FFF9EB</color>
+    <color name="login"> #F22663</color>
+    <color name="cadastro"> #D4E4FE</color>
+
 </resources>
