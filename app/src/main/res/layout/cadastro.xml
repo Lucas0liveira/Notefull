@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CadastroActivity">
+
+
+    <View
+        android:id="@+id/tela_cadast"
+        android:layout_width="720dp"
+        android:layout_height="1080dp"
+        android:background="@drawable/ic_launcher_background"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <!-- Login -->
+
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="199dp"
+        android:layout_height="50dp"
+        android:background="@drawable/textfield"
+        android:elevation="4dp"
+        android:gravity="center_horizontal|top"
+        android:text="@string/login"
+        android:textAppearance="@style/login"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="326dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
