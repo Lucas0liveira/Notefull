@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- drawable/tela_cadast.xml -->
+<!-- drawable/tela_cadast.xml -->
 <vector
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
@@ -10,7 +11,8 @@
     >
         <path
             android:pathData="M0 0V1080H729.074V0"
-            android:fillColor="#FFF9EB" />
+            android:fillColor="@color/background" />
+
 
 </vector>
 
