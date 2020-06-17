@@ -7,6 +7,10 @@ public class Folder {
         this.title = title;
     }
 
+    public Folder() {
+
+    }
+
     public String getTitle() {
         return title;
     }
