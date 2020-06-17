@@ -1,8 +1,12 @@
 package com.example.notefull;
 
+import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -75,12 +79,60 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         this.onCreate(db);
     }
 
-    public void SignIn(){
+    public boolean SignIn(User user){
 
+        String SELECT_USER =
+                String.format("SELECT * FROM %s WHERE email = %s", USER_TABLE_NAME, user.getEmail());
+        SQLiteDatabase dbcheck = getReadableDatabase();
+        Cursor cursor = dbcheck.rawQuery(SELECT_USER, null);
+
+         if(!cursor.equals(null)){
+             //email já está cadastrado
+             return false;
+         }
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        try{
+            ContentValues values = new ContentValues();
+            values.put(USER_COLUMN_NAME, user.getName());
+            values.put(USER_COLUMN_EMAIL, user.getName());
+            values.put(USER_COLUMN_PASSWORD, user.getName());
+
+            db.insertOrThrow(USER_TABLE_NAME, null, values);
+        } catch (Exception e) {
+            Log.d(e.getStackTrace().toString(), "Erro ao cadastrar usuário!");
+            return false;
+        }
+        return true;
     }
 
-    public void Login(){
+    public boolean Login(User user){
 
+        String SELECT_USER =
+                String.format("SELECT * FROM %s WHERE email = %s", USER_TABLE_NAME, user.getEmail());
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(SELECT_USER, null);
+
+        try {
+            if (cursor.moveToFirst()) {
+                String checkPassword = cursor.getString(cursor.getColumnIndex(USER_COLUMN_PASSWORD));
+                if(!checkPassword.equals(user.getPassword())){
+                    //Senha incorreta
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            Log.d(e.getStackTrace().toString(), "Erro ao listar celulares");
+            return false;
+        } finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+            return false;
+        }
     }
 
     public void addNote(){
