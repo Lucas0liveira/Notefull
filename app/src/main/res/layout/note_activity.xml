@@ -99,7 +99,7 @@
         android:id="@+id/button7"
         android:layout_width="47dp"
         android:layout_height="46dp"
-        android:background="@mipmap/ic_organizeA"
+        android:background="@mipmap/ic_organize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.087"
