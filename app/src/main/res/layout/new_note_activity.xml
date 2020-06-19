@@ -57,7 +57,7 @@
         android:id="@+id/edtNewAnotation"
         android:layout_width="347dp"
         android:layout_height="178dp"
-        android:background="@drawable/textview"
+        android:background="@drawable/largetextview"
         android:ems="10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -135,7 +135,7 @@
     <Button
         android:id="@+id/btnNotification"
         android:layout_width="38dp"
-        android:layout_height="33dp"
+        android:layout_height="38dp"
         android:background="@mipmap/ic_notification"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -148,7 +148,7 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="52dp"
-        android:layout_height="49dp"
+        android:layout_height="52dp"
         app:layout_constraintBottom_toBottomOf="@+id/tela_nota"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.128"
@@ -173,8 +173,8 @@
 
     <Button
         android:id="@+id/btnCheck"
-        android:layout_width="58dp"
-        android:layout_height="51dp"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
         android:background="@mipmap/ic_check"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

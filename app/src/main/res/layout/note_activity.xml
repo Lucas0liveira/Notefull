@@ -53,7 +53,7 @@
     <Button
         android:id="@+id/button4"
         android:layout_width="82dp"
-        android:layout_height="77dp"
+        android:layout_height="82dp"
         android:layout_marginBottom="28dp"
         android:background="@mipmap/ic_buttom"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -90,7 +90,7 @@
     <Button
         android:id="@+id/button8"
         android:layout_width="47dp"
-        android:layout_height="46dp"
+        android:layout_height="47dp"
         android:background="@mipmap/ic_time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,7 +103,7 @@
     <Button
         android:id="@+id/button7"
         android:layout_width="47dp"
-        android:layout_height="46dp"
+        android:layout_height="47dp"
         android:background="@mipmap/ic_organize_round"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

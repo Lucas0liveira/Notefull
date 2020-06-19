@@ -3,6 +3,7 @@ package com.example.notefull;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +20,14 @@ public class NoteActivity extends AppCompatActivity {
         Button orderByName = findViewById(R.id.button7);
         Button orderByDate = findViewById(R.id.button8);
 
+
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
 
         addNote.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
