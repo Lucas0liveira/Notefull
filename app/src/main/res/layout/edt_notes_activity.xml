@@ -22,7 +22,7 @@
         android:id="@+id/textView14"
         android:layout_width="418dp"
         android:layout_height="115dp"
-        android:background="@drawable/rectangle_4"
+        android:background="@drawable/rectangle_3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -42,16 +42,14 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="644dp"
         android:fontFamily="@font/roboto_mono"
-        android:text="Nova Nota"
+        android:text="Nota"
         android:textColor="@color/white"
         android:textSize="45sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView14"
-        app:layout_constraintHorizontal_bias="0.67"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tela_nota"
-        app:layout_constraintVertical_bias="0.888" />
+        app:layout_constraintTop_toTopOf="@+id/tela_nota" />
 
     <EditText
         android:id="@+id/edtNewAnotation"
@@ -66,7 +64,7 @@
         app:layout_constraintVertical_bias="0.499" />
 
     <EditText
-        android:id="@+id/edtTituloNN"
+        android:id="@+id/edtTitulo"
         android:layout_width="343dp"
         android:layout_height="56dp"
         android:background="@drawable/textview"
@@ -80,11 +78,11 @@
         app:layout_constraintVertical_bias="0.245" />
 
     <TextView
-        android:id="@+id/edtStartWrite"
+        android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_mono"
-        android:text="Comece a escrever"
+        android:text="Minha Anotação"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.163"
@@ -93,7 +91,7 @@
         app:layout_constraintVertical_bias="0.359" />
 
     <TextView
-        android:id="@+id/edtTitle"
+        android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_mono"
@@ -120,17 +118,17 @@
 
     <EditText
         android:id="@+id/edtLembrete"
-        android:layout_width="98dp"
-        android:layout_height="29dp"
+        android:layout_width="99dp"
+        android:layout_height="33dp"
         android:background="@drawable/textview"
         android:ems="10"
         android:inputType="time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.675" />
+        app:layout_constraintVertical_bias="0.679" />
 
     <Button
         android:id="@+id/btnNotification"
@@ -169,6 +167,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.766" />
+
+    <Button
+        android:id="@+id/btnQuit"
+        android:layout_width="57dp"
+        android:layout_height="51dp"
+        android:background="@mipmap/ic_quit"
+        app:layout_constraintBottom_toBottomOf="@+id/tela_nota"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.751"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.916" />
 
     <Button
         android:id="@+id/btnCheck"
