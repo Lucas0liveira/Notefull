@@ -140,7 +140,8 @@
         app:layout_constraintHorizontal_bias="0.713"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.679" />
+        app:layout_constraintVertical_bias="0.679"
+        style="?android:attr/borderlessButtonStyle" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -178,7 +179,8 @@
         app:layout_constraintHorizontal_bias="0.751"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.916" />
+        app:layout_constraintVertical_bias="0.916"
+        style="?android:attr/borderlessButtonStyle" />
 
     <Button
         android:id="@+id/btnCheck"
@@ -190,7 +192,8 @@
         app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.916" />
+        app:layout_constraintVertical_bias="0.916"
+        style="?android:attr/borderlessButtonStyle" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

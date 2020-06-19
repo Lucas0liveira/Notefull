@@ -17,16 +17,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EditText edtEmail = findViewById(R.id.edtEmail);
-        EditText edtSenha = findViewById(R.id.edtSenhaLogin);
-        Button enter = findViewById(R.id.buttonEnter);
-        Button signIn = findViewById(R.id.buttonSignIn);
+        final EditText edtEmail = findViewById(R.id.editTextTextPersonName);
+        final EditText edtSenha = findViewById(R.id.editTextTextPassword);
+        Button enter = findViewById(R.id.button2);
+        Button signIn = findViewById(R.id.button3);
 
-        final String email = edtEmail.getText().toString();
-        final String password = edtSenha.getText().toString();
 
         enter.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                String email = edtEmail.getText().toString();
+                String password = edtSenha.getText().toString();
                 onLoginClicked(email, password);
             }
         });
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d(null, "Senha ou email incorretos!");
         } else {
             Log.d(null, "LOGIN BEM SUCEDIDO");
-            Intent intent = new Intent(this, MainActivity.class); //TROCAR ACTIVITY
+            Intent intent = new Intent(this, NoteActivity.class);
             startActivity(intent);
         }
 

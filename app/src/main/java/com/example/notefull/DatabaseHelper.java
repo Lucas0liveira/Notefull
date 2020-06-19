@@ -88,7 +88,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean SignIn(User user) {
 
-        String SELECT_USER =String.format("SELECT * FROM  %s WHERE %s = ?", USER_TABLE_NAME, USER_COLUMN_EMAIL);
+        String SELECT_USER =String.format("SELECT * FROM  %s WHERE %s =?", USER_TABLE_NAME, USER_COLUMN_EMAIL);
         SQLiteDatabase dbcheck = getReadableDatabase();
         Cursor cursor = dbcheck.rawQuery(SELECT_USER, new String[]{String.valueOf(user.getEmail())});
 
@@ -110,13 +110,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Log.d(e.getStackTrace().toString(), "DB: Erro ao cadastrar usuário!");
             return false;
         }
+        Log.d(null, "DB: Cadastro realizado com sucesso!");
         return true;
     }
 
     public boolean Login(User user) {
 
         String SELECT_USER =
-                String.format("SELECT * FROM %s WHERE email =?", USER_TABLE_NAME);
+                String.format("SELECT * FROM %s WHERE %s =?", USER_TABLE_NAME, USER_COLUMN_EMAIL);
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery(SELECT_USER, new String[]{String.valueOf(user.getEmail())});
 

@@ -17,7 +17,7 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView(R.layout.cadastro);
         final EditText edtNome = findViewById(R.id.edtNome);
         final EditText edtEmail = findViewById(R.id.edtEmail);
-        final EditText edtSenha = findViewById(R.id.edtSenhaSignIn);
+        final EditText edtSenha = findViewById(R.id.edtSenha);
         final EditText edtSenhaConfirm = findViewById(R.id.edtSenhaConfirm);
         Button signIn = findViewById(R.id.button);
 
