@@ -14,7 +14,7 @@ public class Lembrete extends BroadcastReceiver {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "notify")
                 .setSmallIcon(R.mipmap.ic_notification)
                 .setContentTitle("Notefull")
-                .setContentText("Você possui um lembrete para agora")
+                .setContentText("Você possui um lembrete para agora.")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);

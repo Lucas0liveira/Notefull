@@ -58,10 +58,8 @@ public class EdtNotesActivity extends AppCompatActivity {
 
                 alarmManager.set(AlarmManager.RTC_WAKEUP, timeAtButtonClick + timeSeconds, pendingIntent);
 
-
             }
         });
-
 
                 final long finalId = id;
                 btnConfirm.setOnClickListener(new View.OnClickListener(){
@@ -77,7 +75,7 @@ public class EdtNotesActivity extends AppCompatActivity {
                         note.setLg(edtLocal.getText().toString());
                         note.setDate(LocalDateTime.now().toString());
                         db.addNote(note);
-                        Toast.makeText(EdtNotesActivity.this, "Nota criada com sucesso.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EdtNotesActivity.this, "Nota editada com sucesso.", Toast.LENGTH_SHORT).show();
 
             }
         });
