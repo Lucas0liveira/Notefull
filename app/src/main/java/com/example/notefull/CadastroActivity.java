@@ -39,7 +39,8 @@ public class CadastroActivity extends AppCompatActivity {
         } else {
             User user = new User(nome, email, senha);
             DatabaseHelper db = new DatabaseHelper(this);
-            if(!db.SignIn(user)){
+            long userId = db.SignIn(user);
+            if(userId == -1){
                 Log.d(null, "Email já cadastrado!");
             } else {
                 Intent intent = new Intent(this, MainActivity.class);

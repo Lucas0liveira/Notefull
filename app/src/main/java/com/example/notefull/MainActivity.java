@@ -43,11 +43,15 @@ public class MainActivity extends AppCompatActivity {
     public void onLoginClicked(String email, String password){
         DatabaseHelper db = new DatabaseHelper(this);
         User user = new User("", email, password);
-        if(!db.Login(user)){
+        long userId = db.Login(user);
+        if(userId == -1){
             Log.d(null, "Senha ou email incorretos!");
         } else {
-            Log.d(null, "LOGIN BEM SUCEDIDO");
+            Log.d(null, "LOGIN BEM SUCEDIDO usuário " +userId);
             Intent intent = new Intent(this, NoteActivity.class);
+            Bundle b = new Bundle();
+            b.putLong("userId", userId);
+            intent.putExtras(b);
             startActivity(intent);
             finish();
         }
