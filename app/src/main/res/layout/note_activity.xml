@@ -79,7 +79,7 @@
         android:id="@+id/listview_notas"
         android:layout_width="347dp"
         android:layout_height="59dp"
-        android:background="@drawable/textview"
+        android:background="@drawable/textviewnote"
         android:fontFamily="@font/roboto_mono"
         app:layout_constraintBottom_toBottomOf="@+id/tela_nota"
         app:layout_constraintEnd_toEndOf="parent"

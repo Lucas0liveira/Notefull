@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView14"
@@ -55,7 +55,7 @@
         android:id="@+id/edtNoteBody"
         android:layout_width="347dp"
         android:layout_height="178dp"
-        android:background="@drawable/largetextview"
+        android:background="@drawable/textviewnote"
         android:ems="10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,7 +67,7 @@
         android:id="@+id/edtNoteTitulo"
         android:layout_width="343dp"
         android:layout_height="56dp"
-        android:background="@drawable/textview"
+        android:background="@drawable/textviewnote"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -120,7 +120,7 @@
         android:id="@+id/edtNoteLembrete"
         android:layout_width="99dp"
         android:layout_height="33dp"
-        android:background="@drawable/textview"
+        android:background="@drawable/textviewnote"
         android:ems="10"
         android:inputType="time"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -159,7 +159,7 @@
         android:id="@+id/edtNoteLocalization"
         android:layout_width="267dp"
         android:layout_height="50dp"
-        android:background="@drawable/textview"
+        android:background="@drawable/textviewnote"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
