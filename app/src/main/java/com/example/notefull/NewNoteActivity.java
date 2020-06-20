@@ -43,6 +43,7 @@ public class NewNoteActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(view.getContext(), NoteActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
