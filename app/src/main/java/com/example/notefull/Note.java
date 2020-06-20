@@ -3,12 +3,13 @@ package com.example.notefull;
 import java.util.Date;
 
 public class Note {
-    private String title, body, folder, timer, lat, lg, date;
+    private long id = -1;
+    private String title, body, timer, lat, lg, date;
 
-    public Note(String title, String body, String folder, String time, String lat, String lg, String date) {
+    public Note(long id, String title, String body, String time, String lat, String lg, String date) {
+        this.id = id;
         this.title = title;
         this.body = body;
-        this.folder = folder;
         this.timer = time;
         this.lat = lat;
         this.lg = lg;
@@ -19,16 +20,16 @@ public class Note {
 
     }
 
+    public long getId() {
+        return id;
+    }
+
     public String getTitle() {
         return title;
     }
 
     public String getBody() {
         return body;
-    }
-
-    public String getFolder() {
-        return folder;
     }
 
     public String getTimer() {
@@ -47,16 +48,16 @@ public class Note {
         return date;
     }
 
+    public void setId(long id ) {
+        this.id = id;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
 
     public void setBody(String body) {
         this.body = body;
-    }
-
-    public void setFolder(String folder) {
-        this.folder = folder;
     }
 
     public void setTimer(String timer) {

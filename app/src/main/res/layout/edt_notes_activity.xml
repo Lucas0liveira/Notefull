@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewNoteActivity">
+    tools:context=".EdtNotesActivity">
 
     <View
         android:id="@+id/tela_nota"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toTopOf="@+id/tela_nota" />
 
     <EditText
-        android:id="@+id/edtNewAnotation"
+        android:id="@+id/edtNoteBody"
         android:layout_width="347dp"
         android:layout_height="178dp"
         android:background="@drawable/largetextview"
@@ -64,7 +64,7 @@
         app:layout_constraintVertical_bias="0.499" />
 
     <EditText
-        android:id="@+id/edtTitulo"
+        android:id="@+id/edtNoteTitulo"
         android:layout_width="343dp"
         android:layout_height="56dp"
         android:background="@drawable/textview"
@@ -117,7 +117,7 @@
         app:layout_constraintVertical_bias="0.68" />
 
     <EditText
-        android:id="@+id/edtLembrete"
+        android:id="@+id/edtNoteLembrete"
         android:layout_width="99dp"
         android:layout_height="33dp"
         android:background="@drawable/textview"
@@ -131,7 +131,7 @@
         app:layout_constraintVertical_bias="0.679" />
 
     <Button
-        android:id="@+id/btnNotification"
+        android:id="@+id/btnNoteNotification"
         android:layout_width="38dp"
         android:layout_height="38dp"
         android:background="@mipmap/ic_notification"
@@ -156,7 +156,7 @@
         app:srcCompat="@mipmap/ic_localization" />
 
     <EditText
-        android:id="@+id/edtLocalization"
+        android:id="@+id/edtNoteLocalization"
         android:layout_width="267dp"
         android:layout_height="50dp"
         android:background="@drawable/textview"
@@ -170,7 +170,7 @@
         app:layout_constraintVertical_bias="0.766" />
 
     <Button
-        android:id="@+id/btnQuit"
+        android:id="@+id/btnNoteQuit"
         android:layout_width="57dp"
         android:layout_height="57dp"
         android:background="@mipmap/ic_quit"
@@ -183,7 +183,7 @@
         style="?android:attr/borderlessButtonStyle" />
 
     <Button
-        android:id="@+id/btnCheck"
+        android:id="@+id/btnNoteCheck"
         android:layout_width="57dp"
         android:layout_height="57dp"
         android:background="@mipmap/ic_check"

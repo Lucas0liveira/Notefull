@@ -52,6 +52,7 @@
 
     <Button
         android:id="@+id/button4"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="82dp"
         android:layout_height="82dp"
         android:layout_marginBottom="28dp"
@@ -59,21 +60,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.917"
-        app:layout_constraintStart_toStartOf="parent"
-        style="?android:attr/borderlessButtonStyle"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="109dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="507dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="81dp"
+        android:layout_height="78dp"
         android:background="@mipmap/ic_logoff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
-        style="?android:attr/borderlessButtonStyle" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.182" />
 
     <ListView
         android:id="@+id/listview_notas"
@@ -89,6 +89,7 @@
 
     <Button
         android:id="@+id/button8"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="47dp"
         android:layout_height="47dp"
         android:background="@mipmap/ic_time"
@@ -97,11 +98,11 @@
         app:layout_constraintHorizontal_bias="0.247"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.185"
-        style="?android:attr/borderlessButtonStyle"/>
+        app:layout_constraintVertical_bias="0.185" />
 
     <Button
         android:id="@+id/button7"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="47dp"
         android:layout_height="47dp"
         android:background="@mipmap/ic_organize_round"
@@ -110,7 +111,6 @@
         app:layout_constraintHorizontal_bias="0.087"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.185"
-        style="?android:attr/borderlessButtonStyle"/>
+        app:layout_constraintVertical_bias="0.185" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

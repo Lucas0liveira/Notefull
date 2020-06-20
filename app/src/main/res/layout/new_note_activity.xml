@@ -48,10 +48,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView14"
-        app:layout_constraintHorizontal_bias="0.67"
+        app:layout_constraintHorizontal_bias="0.617"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tela_nota"
-        app:layout_constraintVertical_bias="0.888" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/edtNewAnotation"
@@ -151,10 +151,10 @@
         android:layout_height="52dp"
         app:layout_constraintBottom_toBottomOf="@+id/tela_nota"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintHorizontal_bias="0.089"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.765"
+        app:layout_constraintVertical_bias="0.768"
         app:srcCompat="@mipmap/ic_localization" />
 
     <EditText
