@@ -44,6 +44,7 @@ public class CadastroActivity extends AppCompatActivity {
             } else {
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         }
 

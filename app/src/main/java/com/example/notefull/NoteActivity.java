@@ -25,7 +25,7 @@ public class NoteActivity extends AppCompatActivity {
         Button orderByDate = findViewById(R.id.button8);
 
         DatabaseHelper dbh = new DatabaseHelper(this);
-        List<Note> notes = dbh.getAllNotes();
+        final List<Note> notes = dbh.getAllNotes();
 
         ArrayList<String> noteNames =  new ArrayList<>();
         for(Note n : notes){
@@ -40,7 +40,11 @@ public class NoteActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 view.setSelected(true);
                 Intent intent = new Intent(view.getContext(), EdtNotesActivity.class);
+                Bundle b = new Bundle();
+                b.putLong("id", notes.get(i).getId()); //Your id
+                intent.putExtras(b); //Put your id to your next Intent
                 startActivity(intent);
+                finish();
 
             }
         });
@@ -49,6 +53,7 @@ public class NoteActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), NewNoteActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -56,6 +61,7 @@ public class NoteActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), MainActivity.class);
                 startActivity(intent);
+                finish();
 
             }
         });

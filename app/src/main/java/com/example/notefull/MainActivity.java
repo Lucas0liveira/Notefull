@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), CadastroActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d(null, "LOGIN BEM SUCEDIDO");
             Intent intent = new Intent(this, NoteActivity.class);
             startActivity(intent);
+            finish();
         }
 
     }

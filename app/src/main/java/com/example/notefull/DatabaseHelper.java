@@ -146,10 +146,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public long RemoveNote(String body) {
+    public long RemoveNote(long id) {
         SQLiteDatabase db = getWritableDatabase();
         long idRemoved = -1;
-        String[] args = {String.valueOf(body)};
+        String[] args = {String.valueOf(id)};
         idRemoved = db.delete(NOTE_TABLE_NAME, NOTE_COLUMN_BODY +"=?", args);
         return idRemoved;
     }
