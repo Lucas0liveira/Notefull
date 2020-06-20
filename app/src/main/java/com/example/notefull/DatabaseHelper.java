@@ -27,6 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String USER_COLUMN_PASSWORD = "password";
     //note
     private static final String NOTE_TABLE_NAME = "notes";
+    private static final String NOTE_COLUMN_USER = "user";
     private static final String NOTE_COLUMN_ID = "id";
     private static final String NOTE_COLUMN_TITLE = "title";
     private static final String NOTE_COLUMN_BODY = "body";
@@ -50,6 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String CREATE_NOTES_TABLE = "CREATE TABLE " + NOTE_TABLE_NAME + "(" +
                 NOTE_COLUMN_ID + " INTEGER PRIMARY KEY," +
+                NOTE_COLUMN_USER + " INTEGER REFERENCES " + USER_TABLE_NAME + ", " +
                 NOTE_COLUMN_TITLE + " TEXT NOT NULL, " +
                 NOTE_COLUMN_BODY + " TEXT NOT NULL, " +
                 NOTE_COLUMN_TIMER + " TEXT NOT NULL, " +
@@ -73,7 +75,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         this.onCreate(db);
     }
 
-    public boolean SignIn(User user) {
+    public long SignIn(User user) {
 
         String SELECT_USER =String.format("SELECT * FROM  %s WHERE %s =?", USER_TABLE_NAME, USER_COLUMN_EMAIL);
         SQLiteDatabase dbcheck = getReadableDatabase();
@@ -81,56 +83,58 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             Log.d(null, "DB: Email já cadastrado!");
-            return false;
+            return -1;
         }
 
         SQLiteDatabase db = getWritableDatabase();
-
+        long userId = -1;
         try {
             ContentValues values = new ContentValues();
             values.put(USER_COLUMN_NAME, user.getName());
-            values.put(USER_COLUMN_EMAIL, user.getName());
-            values.put(USER_COLUMN_PASSWORD, user.getName());
+            values.put(USER_COLUMN_EMAIL, user.getEmail());
+            values.put(USER_COLUMN_PASSWORD, user.getPassword());
 
-            db.insertOrThrow(USER_TABLE_NAME, null, values);
+            userId = db.insertOrThrow(USER_TABLE_NAME, null, values);
         } catch (Exception e) {
             Log.d(e.getStackTrace().toString(), "DB: Erro ao cadastrar usuário!");
-            return false;
+            return -1;
         }
         Log.d(null, "DB: Cadastro realizado com sucesso!");
-        return true;
+        return userId;
     }
 
-    public boolean Login(User user) {
+    public long Login(User user) {
 
         String SELECT_USER =
                 String.format("SELECT * FROM %s WHERE %s =?", USER_TABLE_NAME, USER_COLUMN_EMAIL);
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery(SELECT_USER, new String[]{String.valueOf(user.getEmail())});
 
+        long userId = -1;
         try {
             if (cursor.moveToFirst()) {
                 String checkPassword = cursor.getString(cursor.getColumnIndex(USER_COLUMN_PASSWORD));
+                userId = cursor.getLong(cursor.getColumnIndex(USER_COLUMN_ID));
                 if (!checkPassword.equals(user.getPassword())) {
                     Log.d(null, "DB: Senha ou email incorreto!");
-                    return false;
+                    return -1;
                 } else {
-                    return true;
+                    return userId;
                 }
             }
         } catch (Exception e) {
             Log.d(e.getStackTrace().toString(), "DB: Erro ao fazer login");
-            return false;
+            return -1;
         } finally {
             if (cursor != null && !cursor.isClosed()) {
                 cursor.close();
             }
         }
         Log.d(null, "DB: Email não cadastrado!");
-        return false;
+        return -1;
     }
 
-    public void addNote(Note note) {
+    public void addNote(Note note, long userId) {
         SQLiteDatabase db = getWritableDatabase();
         try {
             ContentValues values = new ContentValues();
@@ -140,7 +144,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             values.put(NOTE_COLUMN_LATITUDE, note.getLat());
             values.put(NOTE_COLUMN_LONGITUDE, note.getLg());
             values.put(NOTE_COLUMN_DATE, note.getDate());
-            db.insertOrThrow(NOTE_TABLE_NAME, null, values);
+            values.put(NOTE_COLUMN_USER, userId);
+            System.out.println("DB: Nota adicionada, id:" + db.insertOrThrow(NOTE_TABLE_NAME, null, values));
         } catch (Exception e) {
             Log.d(null, "DB: Erro ao inserir uma nova nota");
         }
@@ -176,11 +181,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return note;
     }
 
-    public List<Note> getAllNotes() {
+    public List<Note> getAllNotes(long userId) {
         List<Note> notes = new ArrayList<>();
-        String GET_NOTES = "SELECT * FROM " + NOTE_TABLE_NAME;
+        String GET_NOTES = "SELECT * FROM " + NOTE_TABLE_NAME + " WHERE " + NOTE_COLUMN_USER + "=?";
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery(GET_NOTES, null);
+        Cursor cursor = db.rawQuery(GET_NOTES, new String[]{String.valueOf(userId)});
         try{
             if (cursor.moveToFirst()) {
                 do {

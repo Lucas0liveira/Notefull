@@ -25,6 +25,9 @@ public class NewNoteActivity extends AppCompatActivity {
         Button btnNotification = findViewById(R.id.btnNotification);
         Button btnConcluido = findViewById(R.id.btnCheck);
 
+        Bundle b = getIntent().getExtras();
+        final long userId = b.getLong("userId");
+
         btnConcluido.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             public void onClick(View view) {
@@ -39,17 +42,16 @@ public class NewNoteActivity extends AppCompatActivity {
                 Log.d(null, date.toString());
                 note.setDate(date.toString());
 
-                db.addNote(note);
+                db.addNote(note, userId);
 
                 Intent intent = new Intent(view.getContext(), NoteActivity.class);
+                Bundle b = new Bundle();
+                b.putLong("userId", userId);
+                intent.putExtras(b);
                 startActivity(intent);
                 finish();
             }
         });
-
-
-
-
     }
 
 }

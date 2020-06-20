@@ -2,6 +2,7 @@ package com.example.notefull;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,8 +25,12 @@ public class NoteActivity extends AppCompatActivity {
         Button orderByName = findViewById(R.id.button7);
         Button orderByDate = findViewById(R.id.button8);
 
+        Bundle b = getIntent().getExtras();
+        final long userId = b.getLong("userId");
+        Log.d(null, "USERID:" + userId);
+
         DatabaseHelper dbh = new DatabaseHelper(this);
-        final List<Note> notes = dbh.getAllNotes();
+        final List<Note> notes = dbh.getAllNotes(userId);
 
         ArrayList<String> noteNames =  new ArrayList<>();
         for(Note n : notes){
@@ -41,8 +46,9 @@ public class NoteActivity extends AppCompatActivity {
                 view.setSelected(true);
                 Intent intent = new Intent(view.getContext(), EdtNotesActivity.class);
                 Bundle b = new Bundle();
-                b.putLong("id", notes.get(i).getId()); //Your id
-                intent.putExtras(b); //Put your id to your next Intent
+                b.putLong("id", notes.get(i).getId());
+                b.putLong("userId", userId);
+                intent.putExtras(b);
                 startActivity(intent);
                 finish();
 
@@ -52,6 +58,9 @@ public class NoteActivity extends AppCompatActivity {
         addNote.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), NewNoteActivity.class);
+                Bundle b = new Bundle();
+                b.putLong("userId", userId);
+                intent.putExtras(b);
                 startActivity(intent);
                 finish();
             }
