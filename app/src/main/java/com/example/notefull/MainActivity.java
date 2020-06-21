@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,8 +47,12 @@ public class MainActivity extends AppCompatActivity {
         long userId = db.Login(user);
         if(userId == -1){
             Log.d(null, "Senha ou email incorretos!");
-        } else {
+            Toast.makeText(this, "Senha ou email incorretos!", Toast.LENGTH_SHORT).show();
+        }
+        else {
             Log.d(null, "LOGIN BEM SUCEDIDO usuário " +userId);
+            Toast.makeText(this, "Login bem sucedido. usuário:" + userId, Toast.LENGTH_SHORT).show();
+
             Intent intent = new Intent(this, NoteActivity.class);
             Bundle b = new Bundle();
             b.putLong("userId", userId);

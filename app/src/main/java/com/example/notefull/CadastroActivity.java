@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class CadastroActivity extends AppCompatActivity {
 
@@ -36,12 +37,14 @@ public class CadastroActivity extends AppCompatActivity {
 
         if(!senha.equals(senhaConfirm)){
             Log.d(null, "As senhas não batem!");
+            Toast.makeText(this, "As senhas não batem!", Toast.LENGTH_SHORT).show();
         } else {
             User user = new User(nome, email, senha);
             DatabaseHelper db = new DatabaseHelper(this);
             long userId = db.SignIn(user);
             if(userId == -1){
                 Log.d(null, "Email já cadastrado!");
+                Toast.makeText(this, "Email já cadastrado!", Toast.LENGTH_SHORT).show();
             } else {
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);

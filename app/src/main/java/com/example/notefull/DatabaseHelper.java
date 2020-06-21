@@ -87,7 +87,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         SQLiteDatabase db = getWritableDatabase();
-        long userId = -1;
+        long userId = -2;
         try {
             ContentValues values = new ContentValues();
             values.put(USER_COLUMN_NAME, user.getName());
@@ -97,7 +97,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             userId = db.insertOrThrow(USER_TABLE_NAME, null, values);
         } catch (Exception e) {
             Log.d(e.getStackTrace().toString(), "DB: Erro ao cadastrar usuário!");
-            return -1;
+            return -2;
         }
         Log.d(null, "DB: Cadastro realizado com sucesso!");
         return userId;
@@ -110,14 +110,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery(SELECT_USER, new String[]{String.valueOf(user.getEmail())});
 
-        long userId = -1;
+        long userId = -3;
         try {
             if (cursor.moveToFirst()) {
                 String checkPassword = cursor.getString(cursor.getColumnIndex(USER_COLUMN_PASSWORD));
                 userId = cursor.getLong(cursor.getColumnIndex(USER_COLUMN_ID));
                 if (!checkPassword.equals(user.getPassword())) {
                     Log.d(null, "DB: Senha ou email incorreto!");
-                    return -1;
+                    return -3;
                 } else {
                     return userId;
                 }

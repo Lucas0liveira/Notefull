@@ -80,7 +80,7 @@ public class EdtNotesActivity extends AppCompatActivity {
                 note.setLg(edtLocal.getText().toString());
                 note.setDate(LocalDateTime.now().toString());
                 db.addNote(note, userId);
-                Toast.makeText(EdtNotesActivity.this, "Nota criada com sucesso.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EdtNotesActivity.this, "Nota editada.", Toast.LENGTH_SHORT).show();
 
             }
         });
