@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import java.time.LocalDateTime;
 
 public class NewNoteActivity extends AppCompatActivity {
@@ -49,6 +51,7 @@ public class NewNoteActivity extends AppCompatActivity {
                 intent.putExtras(b);
                 startActivity(intent);
                 finish();
+                Toast.makeText(NewNoteActivity.this, "Nota criada com sucesso.", Toast.LENGTH_SHORT).show();
             }
         });
     }
