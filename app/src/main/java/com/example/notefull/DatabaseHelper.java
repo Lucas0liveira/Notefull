@@ -175,7 +175,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public List<Note> getAllNotes(long userId) {
         List<Note> notes = new ArrayList<>();
-        String GET_NOTES = "SELECT * FROM " + NOTE_TABLE_NAME + " WHERE " + NOTE_COLUMN_USER + "=?";
+        String GET_NOTES = "SELECT * FROM " + NOTE_TABLE_NAME + " WHERE " + NOTE_COLUMN_USER + "=?" + " ORDER BY " + NOTE_COLUMN_ID + " DESC";
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery(GET_NOTES, new String[]{String.valueOf(userId)});
         try{
@@ -202,7 +202,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public List<Note> orderByName(long userId){
         List<Note> notes = new ArrayList<>();
-        String GET_NOTES = "SELECT * FROM " + NOTE_TABLE_NAME + " WHERE " + NOTE_COLUMN_USER + "=?" + "ORDER BY " + NOTE_COLUMN_TITLE + " ASC";
+        String GET_NOTES = "SELECT * FROM " + NOTE_TABLE_NAME + " WHERE " + NOTE_COLUMN_USER + "=?" + " ORDER BY " + NOTE_COLUMN_TITLE + " DESC";
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery(GET_NOTES, new String[]{String.valueOf(userId)});
         try{

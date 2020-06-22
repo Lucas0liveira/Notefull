@@ -14,12 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NoteActivity extends AppCompatActivity {
-    ListView lv = findViewById(R.id.listview_notas);
+
+    ListView lv;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.note_activity);
 
+        lv = findViewById(R.id.listview_notas);
         Button addNote = findViewById(R.id.button4);
         Button logout = findViewById(R.id.button5);
         Button orderByName = findViewById(R.id.button7);
