@@ -14,12 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NoteActivity extends AppCompatActivity {
+    ListView lv = findViewById(R.id.listview_notas);
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.note_activity);
 
-        ListView lv = findViewById(R.id.listview_notas);
         Button addNote = findViewById(R.id.button4);
         Button logout = findViewById(R.id.button5);
         Button orderByName = findViewById(R.id.button7);
@@ -77,13 +77,31 @@ public class NoteActivity extends AppCompatActivity {
 
         orderByName.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                DatabaseHelper dbh = new DatabaseHelper(view.getContext());
+                final List<Note> notes = dbh.orderByName(userId);
 
+                ArrayList<String> noteNames =  new ArrayList<>();
+                for(Note n : notes){
+                    noteNames.add(n.getTitle());
+                }
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_list_item_1, noteNames);
+                lv.setAdapter(adapter);
             }
         });
 
         orderByDate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                DatabaseHelper dbh = new DatabaseHelper(view.getContext());
+                final List<Note> notes = dbh.getAllNotes(userId);
 
+                ArrayList<String> noteNames =  new ArrayList<>();
+                for(Note n : notes){
+                    noteNames.add(n.getTitle());
+                }
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_list_item_1, noteNames);
+                lv.setAdapter(adapter);
             }
         });
     }

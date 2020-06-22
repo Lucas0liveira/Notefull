@@ -4,13 +4,12 @@ import java.util.Date;
 
 public class Note {
     private long id = -1;
-    private String title, body, timer, lat, lg, date;
+    private String title, body, lat, lg, date;
 
-    public Note(long id, String title, String body, String time, String lat, String lg, String date) {
+    public Note(long id, String title, String body, String lat, String lg, String date) {
         this.id = id;
         this.title = title;
         this.body = body;
-        this.timer = time;
         this.lat = lat;
         this.lg = lg;
         this.date = date;
@@ -30,10 +29,6 @@ public class Note {
 
     public String getBody() {
         return body;
-    }
-
-    public String getTimer() {
-        return timer;
     }
 
     public String getLat() {
@@ -58,10 +53,6 @@ public class Note {
 
     public void setBody(String body) {
         this.body = body;
-    }
-
-    public void setTimer(String timer) {
-        this.timer = timer;
     }
 
     public void setLat(String lat) {
