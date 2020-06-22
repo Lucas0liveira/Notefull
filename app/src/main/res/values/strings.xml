@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">Notefull</string>
 
+    <string-array name="horarios">
 
+        <item>0:10 segundos</item>
+        <item>0:30 segundos</item>
+        <item>1:00 minuto</item>
+        <item>2:00 minutos</item>
+        <item>5:00 minutos</item>
+        <item>10:00 minutos</item>
+        <item>15:00 minutos</item>
+        <item>30:00 minutos</item>
+
+    </string-array>
 </resources>

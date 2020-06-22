@@ -34,7 +34,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String NOTE_COLUMN_TIMER = "timer";
     private static final String NOTE_COLUMN_LATITUDE = "lat";
     private static final String NOTE_COLUMN_LONGITUDE = "lg";
-    private static final String NOTE_COLUMN_DATE =  "date";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -56,8 +55,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 NOTE_COLUMN_BODY + " TEXT NOT NULL, " +
                 NOTE_COLUMN_TIMER + " TEXT NOT NULL, " +
                 NOTE_COLUMN_LATITUDE + " TEXT NOT NULL, " +
-                NOTE_COLUMN_LONGITUDE + " TEXT NOT NULL, " +
-                NOTE_COLUMN_DATE + " TEXT NOT NULL " +
+                NOTE_COLUMN_LONGITUDE + " TEXT NOT NULL " +
                 ")";
 
         db.execSQL(CREATE_USERS_TABLE);
@@ -140,10 +138,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             ContentValues values = new ContentValues();
             values.put(NOTE_COLUMN_TITLE, note.getTitle());
             values.put(NOTE_COLUMN_BODY, note.getBody());
-            values.put(NOTE_COLUMN_TIMER, note.getTimer());
             values.put(NOTE_COLUMN_LATITUDE, note.getLat());
             values.put(NOTE_COLUMN_LONGITUDE, note.getLg());
-            values.put(NOTE_COLUMN_DATE, note.getDate());
             values.put(NOTE_COLUMN_USER, userId);
             System.out.println("DB: Nota adicionada, id:" + db.insertOrThrow(NOTE_TABLE_NAME, null, values));
         } catch (Exception e) {
@@ -170,10 +166,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if(cursor.moveToFirst()){
                 note.setTitle(cursor.getString(cursor.getColumnIndex(NOTE_COLUMN_TITLE)));
                 note.setBody(cursor.getString(cursor.getColumnIndex(NOTE_COLUMN_BODY)));
-                note.setDate(cursor.getString(cursor.getColumnIndex(NOTE_COLUMN_DATE)));
                 note.setLat(cursor.getString(cursor.getColumnIndex(NOTE_COLUMN_LATITUDE)));
                 note.setLg(cursor.getString(cursor.getColumnIndex(NOTE_COLUMN_LONGITUDE)));
-                note.setTimer(cursor.getString(cursor.getColumnIndex(NOTE_COLUMN_TIMER)));
             }
         }catch (Exception e){
             Log.d(null, "DB: Erro ao obter anotação");
@@ -193,10 +187,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     note.setId(cursor.getLong(cursor.getColumnIndex(NOTE_COLUMN_ID)));
                     note.setTitle(cursor.getString(cursor.getColumnIndex(NOTE_COLUMN_TITLE)));
                     note.setBody(cursor.getString(cursor.getColumnIndex(NOTE_COLUMN_BODY)));
-                    note.setDate(cursor.getString(cursor.getColumnIndex(NOTE_COLUMN_DATE)));
                     note.setLat(cursor.getString(cursor.getColumnIndex(NOTE_COLUMN_LATITUDE)));
                     note.setLg(cursor.getString(cursor.getColumnIndex(NOTE_COLUMN_LONGITUDE)));
-                    note.setTimer(cursor.getString(cursor.getColumnIndex(NOTE_COLUMN_TIMER)));
                     notes.add(note);
                 } while (cursor.moveToNext());
             }

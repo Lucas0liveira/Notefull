@@ -37,7 +37,6 @@ public class NewNoteActivity extends AppCompatActivity {
                 Note note = new Note();
                 note.setTitle(edtTitulo.getText().toString());
                 note.setBody(edtBody.getText().toString());
-                note.setTimer(edtLembrete.getText().toString());
                 note.setLat(edtLocalization.getText().toString());
                 note.setLg(edtLocalization.getText().toString());
                 LocalDateTime date = LocalDateTime.now();
