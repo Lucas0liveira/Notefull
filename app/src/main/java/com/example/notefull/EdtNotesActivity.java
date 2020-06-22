@@ -98,6 +98,9 @@ public class EdtNotesActivity extends AppCompatActivity implements AdapterView.O
         btnQuit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), NoteActivity.class);
+                Bundle b = new Bundle();
+                b.putLong("userId", userId);
+                intent.putExtras(b);
                 startActivity(intent);
                 finish();
             }

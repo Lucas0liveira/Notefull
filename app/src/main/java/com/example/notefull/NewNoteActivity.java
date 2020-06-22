@@ -32,8 +32,9 @@ public class NewNoteActivity extends AppCompatActivity implements AdapterView.On
         final EditText edtTitulo = findViewById(R.id.edtTituloNN);
         final EditText edtBody = findViewById(R.id.edtNewAnotation);
         final Spinner edtLembrete = findViewById(R.id.edtLembrete);
-        Button btnNotification = findViewById(R.id.btnNotification);
+        final Button btnNotification = findViewById(R.id.btnNotification);
         Button btnConcluido = findViewById(R.id.btnCheck);
+
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.horarios, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -46,6 +47,10 @@ public class NewNoteActivity extends AppCompatActivity implements AdapterView.On
         btnNotification.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
+
+                btnNotification.setBackground(getResources().getDrawable(R.mipmap.ic_notification));
+
+
                 Toast.makeText(NewNoteActivity.this, "Lembrete Definido!", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(view.getContext(), Lembrete.class);
@@ -70,9 +75,6 @@ public class NewNoteActivity extends AppCompatActivity implements AdapterView.On
                 Note note = new Note();
                 note.setTitle(edtTitulo.getText().toString());
                 note.setBody(edtBody.getText().toString());
-                LocalDateTime date = LocalDateTime.now();
-                Log.d(null, date.toString());
-                note.setDate(date.toString());
 
                 db.addNote(note, userId);
 

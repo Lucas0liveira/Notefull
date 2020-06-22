@@ -10,8 +10,6 @@ public class Note {
         this.id = id;
         this.title = title;
         this.body = body;
-        this.lat = lat;
-        this.lg = lg;
         this.date = date;
     }
 
@@ -31,18 +29,6 @@ public class Note {
         return body;
     }
 
-    public String getLat() {
-        return lat;
-    }
-
-    public String getLg() {
-        return lg;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
     public void setId(long id ) {
         this.id = id;
     }
@@ -53,17 +39,5 @@ public class Note {
 
     public void setBody(String body) {
         this.body = body;
-    }
-
-    public void setLat(String lat) {
-        this.lat = lat;
-    }
-
-    public void setLg(String lg) {
-        this.lg = lg;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 }
