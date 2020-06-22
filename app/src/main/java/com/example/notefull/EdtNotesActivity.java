@@ -42,7 +42,6 @@ public class EdtNotesActivity extends AppCompatActivity implements AdapterView.O
         final EditText edtTitulo = findViewById(R.id.edtNoteTitulo);
         final EditText edtBody = findViewById(R.id.edtNoteBody);
         final Spinner edtLembrete = findViewById(R.id.edtNoteLembrete);
-        final EditText edtLocal = findViewById(R.id.edtNoteLocalization);
         Button btnNotification = findViewById(R.id.btnNoteNotification);
         Button btnConfirm = findViewById(R.id.btnNoteCheck);
         Button btnQuit = findViewById(R.id.btnNoteQuit);
@@ -90,8 +89,6 @@ public class EdtNotesActivity extends AppCompatActivity implements AdapterView.O
                 Note note = new Note();
                 note.setTitle(edtTitulo.getText().toString());
                 note.setBody(edtBody.getText().toString());
-                note.setLat(edtLocal.getText().toString());
-                note.setLg(edtLocal.getText().toString());
                 db.addNote(note, userId);
                 Toast.makeText(EdtNotesActivity.this, "Nota editada.", Toast.LENGTH_SHORT).show();
 

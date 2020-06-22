@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             Log.d(null, "LOGIN BEM SUCEDIDO usuário " +userId);
-            Toast.makeText(this, "Login bem sucedido. usuário:" + userId, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Login bem sucedido", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(this, NoteActivity.class);
             Bundle b = new Bundle();

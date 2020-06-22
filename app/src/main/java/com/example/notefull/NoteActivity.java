@@ -8,6 +8,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -73,6 +75,7 @@ public class NoteActivity extends AppCompatActivity {
                 Intent intent = new Intent(view.getContext(), MainActivity.class);
                 startActivity(intent);
                 finish();
+                Toast.makeText(NoteActivity.this, "Logout realizado.", Toast.LENGTH_SHORT).show();
 
             }
         });
